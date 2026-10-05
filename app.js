@@ -3,8 +3,8 @@
 // The site is one page with two faces, Home and the Item Wiki, drawn from items.json: what the
 // server knows of its items, with everything nobody has found yet left as a blank.
 
-const KIND_ORDER = ["Weapon", "Tool", "Armor", "Accessory", "Mod", "Material", "Mutation"];
-const KIND_PLURAL = { Weapon: "Weapons", Tool: "Tools", Armor: "Armor", Accessory: "Accessories", Mod: "Mods", Material: "Materials", Mutation: "Mutations" };
+const KIND_ORDER = ["Weapon", "Tool", "Armor", "Accessory", "Mod", "Material", "Mutation", "Rift"];
+const KIND_PLURAL = { Weapon: "Weapons", Tool: "Tools", Armor: "Armor", Accessory: "Accessories", Mod: "Mods", Material: "Materials", Mutation: "Mutations", Rift: "Rifts" };
 const VANILLA_VERSIONS = ["1.21.8", "1.21.4"];
 const REFRESH_MS = 60000;
 const FRAME_MS = 150;
