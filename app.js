@@ -101,7 +101,7 @@ setInterval(() => {
 /** A line of the game's tooltip: pieces of text, each in its own colour and weight. */
 function line(pieces) {
   const row = el("div");
-  for (const piece of pieces || []) {
+  for (const piece of Array.isArray(pieces) ? pieces : pieces ? [pieces] : []) {
     let node = el(piece.b ? "b" : "span", null, piece.t);
     if (piece.c) node.style.color = piece.c;
     if (piece.s) {
@@ -133,6 +133,10 @@ function open(item) {
   const lore = $("sheet-lore");
   lore.replaceChildren(line(item.title && item.title.length ? item.title : [{ t: item.name, c: color, b: true }]));
   for (const pieces of item.lore || []) lore.append(line(pieces));
+  const ways = $("sheet-ways");
+  ways.replaceChildren();
+  for (const way of item.obtain || []) ways.append(el("li", null, way));
+  $("sheet-how").hidden = !(item.obtain && item.obtain.length);
   const found = $("sheet-found");
   found.replaceChildren("First found by ", el("strong", null, item.foundBy || "someone"));
   if (item.foundAt) found.append(` on ${when(item.foundAt)}`);
@@ -231,6 +235,10 @@ function drawHome() {
   $("stat-online").textContent = data.online ?? "-";
   $("stat-found").textContent = `${data.discovered || 0} / ${data.total || 0}`;
   $("stat-version").textContent = data.version || "-";
+  const total = data.total || data.items.length;
+  $("home-found").textContent = data.discovered || 0;
+  $("home-total").textContent = total;
+  $("home-fill").style.width = total ? `${((data.discovered || 0) / total) * 100}%` : "0";
   const address = (data.address || "").trim();
   $("address").hidden = !address;
   $("play-top").hidden = !address;
@@ -245,6 +253,7 @@ function drawHome() {
   for (const item of recent) {
     const row = el("button", "latest-item");
     row.type = "button";
+    row.style.setProperty("--rarity", rarityColor[item.rarity] || "var(--line)");
     const words = el("div");
     const name = el("strong", null, item.name);
     name.style.color = rarityColor[item.rarity] || "";

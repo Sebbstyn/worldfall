@@ -25,6 +25,7 @@
 <main>
   <section class="page" id="page-home">
     <div class="hero">
+      <div class="hero-mark" aria-hidden="true"></div>
       <p class="eyebrow">A Minecraft MMORPG</p>
       <h1 id="hero-name">WorldFall</h1>
       <p class="lede" id="hero-tagline">An island of your own in the sky. Gather, craft, fight, and grow it.</p>
@@ -43,29 +44,26 @@
       </dl>
     </div>
 
-    <div class="pillars">
-      <article>
-        <h2>An island that is yours</h2>
-        <p>Every character wakes on a small island in the sky. Clear it, wake the gathering nodes sleeping under the grass, and buy new land beside it piece by piece.</p>
-      </article>
-      <article>
-        <h2>Gather and craft</h2>
-        <p>Trees, ore, crops and fishing spots grow back after you take from them. What you gather becomes tools, weapons and armor at the stations, rolled fresh every time.</p>
-      </article>
-      <article>
-        <h2>Fight your way up</h2>
-        <p>Swords, scythes, gauntlets, staffs and summoning books each fight their own way. Slot mods into your gear, master a weapon, and take on what guards the rarest drops.</p>
-      </article>
-      <article>
-        <h2>A wiki written by players</h2>
-        <p>Nothing in the item wiki is shown until somebody in the game has found it. The first to hold an item has their name written beside it for good.</p>
-      </article>
-    </div>
-
-    <div class="latest">
-      <h2>Latest discoveries</h2>
+    <div class="section">
+      <div class="section-head">
+        <h2>Latest discoveries</h2>
+        <a class="more" href="#wiki">See the whole wiki</a>
+      </div>
       <div class="latest-list" id="latest"></div>
     </div>
+
+    <a class="teaser" href="#wiki">
+      <div>
+        <p class="eyebrow">Item Wiki</p>
+        <h2>Written by whoever gets there first</h2>
+        <p class="lede">Nothing is shown until someone in the game finds it. Be the first to hold an item and your name stays beside it.</p>
+      </div>
+      <div class="teaser-count">
+        <div class="progress-count"><span id="home-found">0</span> / <span id="home-total">0</span></div>
+        <div class="progress-track"><div class="progress-fill" id="home-fill"></div></div>
+        <div class="progress-label">discovered</div>
+      </div>
+    </a>
   </section>
 
   <section class="page" id="page-wiki" hidden>
@@ -108,6 +106,10 @@
       </div>
     </div>
     <div class="tooltip" id="sheet-lore"></div>
+    <div class="how" id="sheet-how" hidden>
+      <h3>How to get it</h3>
+      <ul id="sheet-ways"></ul>
+    </div>
     <p class="sheet-found" id="sheet-found"></p>
   </div>
 </div>
