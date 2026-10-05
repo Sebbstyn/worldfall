@@ -19,6 +19,9 @@
 
 * { box-sizing: border-box; }
 
+/* Hidden means hidden, whatever else a rule below says of how the thing is laid out. */
+[hidden] { display: none !important; }
+
 html { scroll-behavior: smooth; }
 
 body {
