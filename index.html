@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WorldFall</title>
+<meta name="description" content="WorldFall: an island of your own in the sky. Gather, craft, fight, and grow it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="sky" aria-hidden="true"></div>
+
+<header class="bar">
+  <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true"></span><span id="brand-name">WorldFall</span></a>
+  <nav>
+    <a href="#home" data-page="home">Home</a>
+    <a href="#wiki" data-page="wiki">Item Wiki</a>
+  </nav>
+  <button class="play" id="play-top" type="button" hidden>Play now</button>
+</header>
+
+<main>
+  <section class="page" id="page-home">
+    <div class="hero">
+      <p class="eyebrow">A Minecraft MMORPG</p>
+      <h1 id="hero-name">WorldFall</h1>
+      <p class="lede" id="hero-tagline">An island of your own in the sky. Gather, craft, fight, and grow it.</p>
+      <div class="hero-actions">
+        <button class="address" id="address" type="button" hidden>
+          <span class="address-label">Server address</span>
+          <span class="address-value" id="address-value"></span>
+          <span class="address-hint" id="address-hint">Click to copy</span>
+        </button>
+        <a class="ghost" href="#wiki">Open the Item Wiki</a>
+      </div>
+      <dl class="stats">
+        <div><dt>Playing now</dt><dd id="stat-online">-</dd></div>
+        <div><dt>Items discovered</dt><dd id="stat-found">-</dd></div>
+        <div><dt>Minecraft</dt><dd id="stat-version">-</dd></div>
+      </dl>
+    </div>
+
+    <div class="pillars">
+      <article>
+        <h2>An island that is yours</h2>
+        <p>Every character wakes on a small island in the sky. Clear it, wake the gathering nodes sleeping under the grass, and buy new land beside it piece by piece.</p>
+      </article>
+      <article>
+        <h2>Gather and craft</h2>
+        <p>Trees, ore, crops and fishing spots grow back after you take from them. What you gather becomes tools, weapons and armor at the stations, rolled fresh every time.</p>
+      </article>
+      <article>
+        <h2>Fight your way up</h2>
+        <p>Swords, scythes, gauntlets, staffs and summoning books each fight their own way. Slot mods into your gear, master a weapon, and take on what guards the rarest drops.</p>
+      </article>
+      <article>
+        <h2>A wiki written by players</h2>
+        <p>Nothing in the item wiki is shown until somebody in the game has found it. The first to hold an item has their name written beside it for good.</p>
+      </article>
+    </div>
+
+    <div class="latest">
+      <h2>Latest discoveries</h2>
+      <div class="latest-list" id="latest"></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-wiki" hidden>
+    <div class="wiki-head">
+      <div>
+        <p class="eyebrow">Item Wiki</p>
+        <h1>Found so far</h1>
+        <p class="lede">An item appears here the moment someone in the game first holds it. The rest are still out there.</p>
+      </div>
+      <div class="progress" aria-live="polite">
+        <div class="progress-count"><span id="found-count">0</span> / <span id="total-count">0</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-label">discovered</div>
+      </div>
+    </div>
+
+    <div class="filters">
+      <div class="tabs" id="kinds" role="tablist"></div>
+      <div class="filter-row">
+        <input id="search" type="search" placeholder="Search items" autocomplete="off" aria-label="Search items">
+        <select id="rarity" aria-label="Rarity"></select>
+        <label class="check"><input id="show-hidden" type="checkbox" checked> Show undiscovered</label>
+      </div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+    <p class="empty" id="empty" hidden>Nothing matches that.</p>
+  </section>
+</main>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sheet-backdrop" data-close></div>
+  <div class="sheet-card" role="dialog" aria-modal="true" aria-labelledby="sheet-name">
+    <button class="sheet-close" type="button" data-close aria-label="Close">Close</button>
+    <div class="sheet-top">
+      <div class="icon icon-large" id="sheet-icon"></div>
+      <div>
+        <h2 id="sheet-name"></h2>
+        <p class="sheet-kind" id="sheet-kind"></p>
+      </div>
+    </div>
+    <div class="tooltip" id="sheet-lore"></div>
+    <p class="sheet-found" id="sheet-found"></p>
+  </div>
+</div>
+
+<footer>
+  <p>WorldFall is not affiliated with Mojang or Microsoft.</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
