@@ -427,6 +427,17 @@ main { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 clamp
 }
 .tooltip div { min-height: 1.35em; }
 .tooltip b { font-weight: 700; }
+/* A stat's symbol, standing in a line of writing: the picture is white, and takes the line's colour. */
+.glyph {
+  display: inline-block;
+  height: 0.8em;
+  aspect-ratio: 7 / 8;
+  vertical-align: -0.06em;
+  background: currentColor;
+  -webkit-mask: center / contain no-repeat;
+  mask: center / contain no-repeat;
+  image-rendering: pixelated;
+}
 .tooltip s { text-decoration-thickness: 2px; }
 
 .how { margin-top: 16px; padding: 12px 14px; background: var(--slot); border: 2px solid var(--line-soft); border-left: 4px solid var(--brand-deep); }

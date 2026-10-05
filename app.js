@@ -102,6 +102,17 @@ setInterval(() => {
 function line(pieces) {
   const row = el("div");
   for (const piece of Array.isArray(pieces) ? pieces : pieces ? [pieces] : []) {
+    if (piece.i) {
+      // One of the game's own symbols: its white picture, shown in the colour the game writes it in.
+      const symbol = el("span", "glyph");
+      const picture = `url("textures/${piece.i}.png")`;
+      symbol.style.webkitMaskImage = picture;
+      symbol.style.maskImage = picture;
+      if (piece.c) symbol.style.color = piece.c;
+      symbol.setAttribute("aria-hidden", "true");
+      row.append(symbol);
+      continue;
+    }
     let node = el(piece.b ? "b" : "span", null, piece.t);
     if (piece.c) node.style.color = piece.c;
     if (piece.s) {
